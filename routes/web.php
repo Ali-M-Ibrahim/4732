@@ -8,6 +8,9 @@ use App\Http\Controllers\SecondController;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\InvokController;
 use App\Http\Controllers\DataController;
+use App\Http\Controllers\CustomerController;
+
+
 
 
 Route::get('/', function () {
@@ -155,3 +158,38 @@ Route::get("test2",InvokController::class);
 
 
 Route::get('data',[DataController::class,'index']);
+
+
+Route::get("create1",[CustomerController::class,'create1']);
+Route::get("create2",[CustomerController::class,'create2']);
+Route::get("create3",[CustomerController::class,'create3']);
+Route::post("create4",[CustomerController::class,'create4']);
+Route::post("create5",[CustomerController::class,'create5']);
+Route::get("update1/{id}",[CustomerController::class,'update1']);
+Route::get("update2",[CustomerController::class,'update2']);
+Route::get("update3",[CustomerController::class,'update3']);
+Route::put('update4/{id}',[CustomerController::class,'update4']);
+Route::put('update5/{id}',[CustomerController::class,'update5']);
+Route::get("delete1/{id}",[CustomerController::class,'delete1']);
+Route::get("delete2",[CustomerController::class,'delete2']);
+Route::get("getById/{id}",[CustomerController::class,'getById']);
+Route::get("getAll",[CustomerController::class,'getAll']);
+Route::get("getByCondition",[CustomerController::class,'getByCondition']);
+Route::get("getByCondition2",[CustomerController::class,'getByCondition2']);
+Route::get("getByMultipleCondition",[CustomerController::class,'getByMultipleCondition']);
+Route::get("getByConditionOr",[CustomerController::class,'getByConditionOr']);
+Route::get("getLike",[CustomerController::class,'getLike']);
+Route::get("getIn",[CustomerController::class,'getIn']);
+Route::get("getBetween",[CustomerController::class,'getBetween']);
+Route::get("getConditionSelect",[CustomerController::class,'getConditionSelect']);
+Route::get("getLimit",[CustomerController::class,'getLimit']);
+Route::get("stats",[CustomerController::class,'stats']);
+Route::get("join",[CustomerController::class,'join']);
+
+
+
+
+
+
+
+
