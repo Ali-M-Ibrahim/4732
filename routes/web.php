@@ -9,7 +9,8 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\InvokController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\CustomerController;
-
+use App\Http\Controllers\WebsiteController;
+use App\Http\Controllers\CustomerResource;
 
 
 
@@ -188,8 +189,18 @@ Route::get("join",[CustomerController::class,'join']);
 
 
 
+Route::get('page1',[WebsiteController::class,'index']);
+
+Route::get('list-customers',[WebsiteController::class,'listCustomers'])->name('list-customer');
+Route::get('view-customer/{id}',[WebsiteController::class,'viewCustomer'])->name('view-single-customer');
+Route::get('view-customer2/{id}',[WebsiteController::class,'viewCustomer2']);
+Route::get('add-customer',[WebsiteController::class,'addCustomer'])->name('add-customer');
+Route::post('store-customer',[WebsiteController::class,'storeCustomer'])->name('store-customer');
+Route::delete('deleteCustomer/{id}',[WebsiteController::class,'deleteCustomer'])->name('delete-customer');
+Route::get('deleteCustomer2/{id}',[WebsiteController::class,'deleteCustomer'])->name('delete-customer2');
+Route::get('edit-customer/{id}',[WebsiteController::class,'editCustomer'])->name('edit-customer');
+Route::put('update-customer/{id}',[WebsiteController::class,'updateCustomer'])->name('update-customer');
 
 
-
-
-
+Route::resource('customer',CustomerResource::class);
+Route::get('deleteCustomer/{customer}',[CustomerResource::class,'destroy'])->name('deleteCustomer');
