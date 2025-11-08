@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\diController;
+use App\Http\Controllers\TemplateController;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Route;
@@ -214,3 +216,20 @@ Route::post('upload-image2',[UploadController::class,'method2'])->name('method2'
 Route::post('upload-image3',[UploadController::class,'method3'])->name('method3');
 
 Route::get("hash",[UploadController::class,'hash']);
+
+
+
+Route::get('first-page',[WebsiteController::class,'firstPage']);
+Route::get('second-page',[WebsiteController::class,'secondPage']);
+
+
+Route::get('index',[TemplateController::class,'index'])->name('home');
+Route::get('about',[TemplateController::class,'about'])->name('about');
+Route::get('service',[TemplateController::class,'service'])->name('service');
+
+Route::get('old',[diController::class,'old']);
+Route::get('methodDi',[diController::class,'methodDi']);
+Route::get('dif1',[diController::class,'f1']);
+Route::get('dif2',[diController::class,'f2']);
+
+
