@@ -26,6 +26,10 @@
         h1{
             text-align: center;
         }
+
+        .error{
+            color:red;
+        }
     </style>
 </head>
 <body>
@@ -36,25 +40,52 @@
     @csrf
     <div>
         <label for="first_name">First Name</label>
-        <input type="text" id="first_name" name="first_name" />
+        <input value="{{old('first_name')}}" type="text" id="first_name" name="first_name" />
+        @error('first_name')
+            <div class="error">{{$message}}</div>
+        @enderror
     </div>
 
     <div>
         <label for="last_name">Last Name</label>
-        <input type="text" id="last_name" name="last_name" />
+        <input value="{{old('last_name')}}"  type="text" id="last_name" name="last_name" />
+        @error('last_name')
+        <div class="error">{{$message}}</div>
+        @enderror
     </div>
 
 
     <div>
         <label for="address">Address</label>
-        <textarea  id="address" name="address" > </textarea>
+        <textarea  id="address" name="address" > {{old('address')}} </textarea>
+        @error('address')
+        <div class="error">{{$message}}</div>
+        @enderror
     </div>
 
+    <div>
+        <input type="password" name="password">
+        <input type="password" name="password_confirmation">
+        @error('password')
+        <div class="error">{{$message}}</div>
+        @enderror
+    </div>
     <input class="btn" type="submit" value="Save" />
 
     <a href="{{route('customer.index')}}">Go Back</a>
 
 </form>
+
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 
 </body>
 </html>

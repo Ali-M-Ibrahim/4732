@@ -11,6 +11,7 @@ use App\Http\Controllers\DataController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\WebsiteController;
 use App\Http\Controllers\CustomerResource;
+use App\Http\Controllers\UploadController;
 
 
 
@@ -204,3 +205,12 @@ Route::put('update-customer/{id}',[WebsiteController::class,'updateCustomer'])->
 
 Route::resource('customer',CustomerResource::class);
 Route::get('deleteCustomer/{customer}',[CustomerResource::class,'destroy'])->name('deleteCustomer');
+
+Route::get('list-image',[UploadController::class,'list']);
+
+Route::get('add-image',[UploadController::class,'create']);
+Route::post('upload-image1',[UploadController::class,'method1'])->name('method1');
+Route::post('upload-image2',[UploadController::class,'method2'])->name('method2');
+Route::post('upload-image3',[UploadController::class,'method3'])->name('method3');
+
+Route::get("hash",[UploadController::class,'hash']);
