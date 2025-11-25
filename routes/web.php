@@ -227,9 +227,14 @@ Route::get('index',[TemplateController::class,'index'])->name('home');
 Route::get('about',[TemplateController::class,'about'])->name('about');
 Route::get('service',[TemplateController::class,'service'])->name('service');
 
-Route::get('old',[diController::class,'old']);
-Route::get('methodDi',[diController::class,'methodDi']);
-Route::get('dif1',[diController::class,'f1']);
-Route::get('dif2',[diController::class,'f2']);
+Route::get('old',[diController::class,'old'])->middleware('middleware1');
 
 
+Route::middleware(['middleware1'])->group(function () {
+    Route::get('methodDi',[diController::class,'methodDi']);
+    Route::get('dif1',[diController::class,'f1
+    ']);
+    Route::get('dif2',[diController::class,'f2']);
+
+
+});
